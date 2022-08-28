@@ -1,0 +1,77 @@
+{
+  "name": "exam-admin",
+  "version": "1.0.0",
+  "author": "在线考试系统",
+  "description": "考试系统管理系统",
+  "license": "AGPL-3.0",
+  "private": true,
+  "homepage": "https://www.xxx.com/",
+  "scripts": {
+    "serve": "vue-cli-service serve --mode dev",
+    "build": "vue-cli-service build --mode prod",
+    "build:dev": "vue-cli-service build --mode dev",
+    "build:test": "vue-cli-service build --mode test",
+    "build:pre": "vue-cli-service build --mode pre",
+    "build:prod": "vue-cli-service build --mode prod",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://xxx.git"
+  },
+  "bugs": {
+    "url": "https://xxx",
+    "email": "xxx@qq.com"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "axios": "^0.25.0",
+    "clipboard": "^2.0.8",
+    "core-js": "^3.20.3",
+    "driver.js": "^0.9.8",
+    "dropzone": "^5.9.3",
+    "echarts": "^5.3.2",
+    "element-ui": "^2.15.6",
+    "file-saver": "^2.0.5",
+    "husky": "^7.0.4",
+    "js-cookie": "2.2.0",
+    "jsonlint": "^1.6.3",
+    "jszip": "^3.7.1",
+    "mockjs": "^1.1.0",
+    "moment": "^2.29.1",
+    "normalize.css": "8.0.1",
+    "nprogress": "0.2.0",
+    "screenfull": "^5.2.0",
+    "store": "^2.0.12",
+    "vue": "^2.6.14",
+    "vue-count-to": "^1.0.13",
+    "vue-router": "^3.5.3",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-router": "^4.5.15",
+    "@vue/cli-plugin-vuex": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.0",
+    "svg-sprite-loader": "4.1.6",
+    "vue-template-compiler": "^2.6.14"
+  }
+}
