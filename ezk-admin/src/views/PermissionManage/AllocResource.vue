@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import { fetchAllResourceList } from '@/services/resource'
-import { listAllCate } from '@/services/resourceCategory'
-import { allocResource, listResourceByRole } from '@/services/role'
+// import { fetchAllResourceList } from '@/services/resource'
+// import { listAllCate } from '@/services/resourceCategory'
+// import { allocResource, listResourceByRole } from '@/services/role'
 
 import bossApi from '@/api/boss'
 

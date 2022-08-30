@@ -157,6 +157,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
+
           loginApi.login(this.loginForm).then(function (res) {
             if(res.code === "000000") {
               // 更新token

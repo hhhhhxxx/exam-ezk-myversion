@@ -7,10 +7,8 @@
           <span style="margin-right: 10px" v-if="choiceExamName !== ''">已选择：{{choiceExamName}}</span>
           <el-link type="primary" @click="choiceExamDialog = !choiceExamDialog">请选择试卷</el-link>
           <!--   试卷列表     -->
-          <el-dialog
-            title="试卷列表"
-            :visible.sync="choiceExamDialog"
-            width="900px">
+          <el-dialog title="试卷列表" :visible.sync="choiceExamDialog" width="900px">
+
             <el-select v-model="choiceQuestionBankId" placeholder="请选择题库">
               <el-option
                 v-for="item in questionBankList"
@@ -21,6 +19,7 @@
             </el-select>
             <el-input style="width: 300px"></el-input>
             <el-button>查找</el-button>
+
             <el-table :data="examPaperList">
               <el-table-column property="id" label="序号" width="50"></el-table-column>
               <el-table-column property="name" label="试卷名称" width="150"></el-table-column>
@@ -34,14 +33,21 @@
                 </template>
               </el-table-column>
             </el-table>
-            <el-pagination
-              @size-change="getExamListSizeChange"
-              @current-change="getExamList"
-              :page-sizes="[5, 10, 15, 20]"
-              :page-size="examListPageSize"
-              layout="sizes, prev, pager, next"
-              :total="examListTotal">
-            </el-pagination>
+
+            <pagination
+              v-show="examListTotal > 0"
+              :total="examListTotal"
+              :page.sync="examListPaperParam.pageIndex"
+              :limit.sync="examListPaperParam.pageSize"
+              @pagination="getExamList"/>
+
+            <!--<el-pagination-->
+            <!--  @current-change="getExamList"-->
+            <!--  :page-sizes="[5, 10, 15, 20]"-->
+            <!--  :page-size="examListPageSize"-->
+            <!--  layout="sizes, prev, pager, next"-->
+            <!--  :total="examListTotal">-->
+            <!--</el-pagination>-->
           </el-dialog>
         </el-form-item>
         <el-form-item label="考试发放对象：">
@@ -294,11 +300,17 @@ export default {
       userIdList: [], // 发送通知id list
 
       choiceExamDialog: false, // 选择试卷对话框可见
+
       examPaperList: [], // 试卷列表
+      examListTotal: 0,
+      examListPaperParam: {
+        pageIndex: 1,
+        pageSize: 5
+      },
+
       choiceExamId: null, // 选中试卷Id
       choiceExamName: '', // 选择的试卷名字
-      examListTotal: 0,
-      examListPageSize: 5,
+
 
       kaowu: {
         noticeTime: '',
@@ -359,17 +371,22 @@ export default {
     },
 
     // 发送请求获取试卷列表
-    getExamList (val = 1) {
-      let data = {
-        pageIndex: val,
-        pageSize: this.examListPageSize
+    getExamList () {
+      // let data = {
+      //   pageIndex: val,
+      //   pageSize: this.examListPageSize
+      // }
+
+      let param = {
+        pageIndex: this.examListPaperParam.pageIndex,
+        pageSize: this.examListPaperParam.pageSize
       }
-      this.$axios.post('/api/admin/exam/paper/page', data).then(res => {
+
+      this.$axios.post('/api/admin/exam/paper/page', param).then(res => {
         this.examListTotal = res.data.response.total
         this.examPaperList = res.data.response.list
       })
     },
-
     // 获取用户列表
     getUserList () {
       let query = {

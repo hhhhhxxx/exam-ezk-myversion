@@ -8,8 +8,6 @@ import router from '../router'
 
 export default (Vue) => {
 
-  timeOuter: null
-
   // 保证的第一个拦截器 从头部插入
   router.beforeHooks.unshift((to, from, next) => {
     console.log('要去哪？to: ', to)

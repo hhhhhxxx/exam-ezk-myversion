@@ -56,8 +56,11 @@
   </div>
 </template>
 <script>
-import { listAllCate, saveOrderUpdate, deleteResourceCategory } from '@/services/resourceCategory'
+// import { listAllCate, saveOrderUpdate, deleteResourceCategory } from '@/services/resourceCategory'
 import { formatDate } from '@/utils/date'
+
+import bossApi from '@/api/boss'
+
 const defaultResourceCategory = {
   name: null,
   sort: 0
@@ -103,7 +106,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        deleteResourceCategory(row.id).then(response => {
+        bossApi.deleteResourceCategory(row.id).then(response => {
           this.$message({
             type: 'success',
             message: '删除成功!'
@@ -114,7 +117,7 @@ export default {
     },
     handleDialogConfirm () {
       if (this.isEdit) {
-        saveOrderUpdate(this.resourceCategory).then(response => {
+        bossApi.saveOrUpdateResourceCategory(this.resourceCategory).then(response => {
           this.$message({
             message: '修改成功！',
             type: 'success'
@@ -123,7 +126,7 @@ export default {
           this.getList()
         })
       } else {
-        saveOrderUpdate(this.resourceCategory).then(response => {
+        bossApi.saveOrUpdateResourceCategory(this.resourceCategory).then(response => {
           this.$message({
             message: '添加成功！',
             type: 'success'
@@ -135,7 +138,7 @@ export default {
     },
     getList () {
       this.listLoading = true
-      listAllCate({}).then(response => {
+      bossApi.listAllCate({}).then(response => {
         this.listLoading = false
         this.list = response.data
       })

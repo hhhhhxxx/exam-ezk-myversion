@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import { fetchTreeList } from '@/services/menu'
-import { listMenuByRole, allocMenu } from '@/services/role'
+// import { fetchTreeList } from '@/services/menu'
+// import { listMenuByRole, allocMenu } from '@/services/role'
 
 import bossApi from '@/api/boss'
 export default {

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { fetchList, saveOrUpdate, getMenu } from '@/services/menu'
+// import { fetchList, saveOrUpdate, getMenu } from '@/services/menu'
 
 import bossApi from '@/api/boss'
 
@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     getSelectMenuList () {
-      fetchList(0, { pageSize: 100, pageNum: 1 }).then(response => {
+      bossApi.fetchAllMenuList(0, { pageSize: 100, pageNum: 1 }).then(response => {
         this.selectMenuList = response.data.list
         this.selectMenuList.unshift({ id: 0, title: '无上级菜单' })
       })

@@ -9,14 +9,12 @@
           v-model="queryParam.level"
           placeholder="年级"
           @change="levelChange"
-          clearable
-        >
+          clearable>
           <el-option
             v-for="item in levelEnum"
             :key="item.key"
             :value="item.key"
-            :label="item.value"
-          ></el-option>
+            :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="课程：">
@@ -25,8 +23,7 @@
             v-for="item in subjectFilter"
             :key="item.id"
             :value="item.id"
-            :label="item.name + ' ( ' + item.levelName + ' )'"
-          ></el-option>
+            :label="item.name + ' ( ' + item.levelName + ' )'"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -45,15 +42,13 @@
       border
       fit
       highlight-current-row
-      style="width: 100%"
-    >
+      style="width: 100%">
       <el-table-column prop="id" label="Id" width="90px" align="center" />
       <el-table-column
         prop="subjectId"
         label="课程"
         :formatter="subjectFormatter"
-        align="center"
-      />
+        align="center"/>
       <el-table-column prop="name" label="名称" align="center" />
       <!--<el-table-column prop="classname" label="班级" width="150px" align="center" />-->
       <el-table-column prop="questionCount" label="题量" width="150px" align="center"/>
@@ -62,24 +57,17 @@
       <el-table-column
         prop="createTime"
         label="创建时间"
-        align="center"
-      />
+        align="center"/>
       <el-table-column label="操作" align="center" width="307px" fixed="right">
         <template slot-scope="{ row }">
           <el-button
             size="mini"
-            @click="
-              $router.push({ path: '/exam/paper/edit', query: { id: row.id } })
-            "
-            >编辑</el-button
-          >
+            @click="$router.push({ path: '/exam/paper/edit', query: { id: row.id } })">编辑</el-button>
           <el-button
             size="mini"
             type="danger"
             @click="deletePaper(row)"
-            class="link-left"
-            >删除</el-button
-          >
+            class="link-left">删除</el-button>
           <router-link :to="{ path: `/exam/paper/preview?id=${row.id}` }" class="link-left">
             <el-button size="mini">预览</el-button>
           </router-link>
@@ -88,12 +76,8 @@
 <!--          </router-link>-->
           <el-button
             size="mini"
-            @click="
-              $router.push({ path: '/task/manage/publish', query: { paperid: row.id,name:row.name } })
-            "
-            style="margin-left: 5px"
-          >发布考试</el-button
-          >
+            @click="$router.push({ path: '/task/manage/publish', query: { paperid: row.id,name:row.name } })"
+            style="margin-left: 5px">发布考试</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -102,8 +86,7 @@
       :total="total"
       :page.sync="queryParam.pageIndex"
       :limit.sync="queryParam.pageSize"
-      @pagination="search"
-    />
+      @pagination="search"/>
   </div>
 </template>
 

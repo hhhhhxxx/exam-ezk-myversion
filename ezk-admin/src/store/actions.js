@@ -1,26 +1,29 @@
-import { TokenService, UserService } from '../services'
+
 import {
   CHANGE_SESSION,
 } from './mutations'
 import { axios } from '../utils'
 
+import bossApi from '@/api/boss'
+
 const actions = {
   /**
    * 创建新的客户端令牌
    */
-  createToken: async ({ commit }, { userName, password }) => {
-    const res = await TokenService.userLogin({
-      username: userName.trim(),
-      password: password.trim()
-    })
-
-    if (res.state !== 1) {
-      return Promise.resolve(res)
-    }
-    const result = JSON.parse(res.content)
-    commit(CHANGE_SESSION, { accessToken: result.access_token, refreshToken: result.refresh_token })
-    return res
-  },
+  // createToken: async ({ commit }, { userName, password }) => {
+  //
+  //   const res = await TokenService.userLogin({
+  //     username: userName.trim(),
+  //     password: password.trim()
+  //   })
+  //
+  //   if (res.state !== 1) {
+  //     return Promise.resolve(res)
+  //   }
+  //   const result = JSON.parse(res.content)
+  //   commit(CHANGE_SESSION, { accessToken: result.access_token, refreshToken: result.refresh_token })
+  //   return res
+  // },
 
   /**
    * 检查客户端令牌是否可用
@@ -44,18 +47,18 @@ const actions = {
   /**
    * 获取当前登录用户信息
    */
-  getCurrentUser: async ({ commit }) => {
-    const res = await UserService.getUserInfo()
-    commit(CHANGE_SESSION, { user: res.content })
-    return res.data
-  },
+  // getCurrentUser: async ({ commit }) => {
+  //   const res = await UserService.getUserInfo()
+  //   commit(CHANGE_SESSION, { user: res.content })
+  //   return res.data
+  // },
 
   /**
    * 获取当前登录用户权限
    */
   getUserPermissions: async ({ commit }) => {
 
-    const res = await UserService.getUserPermissions()
+    const res = await bossApi.getUserPermissions()
 
     const { menuList, resourceList } = res.content
 
@@ -138,7 +141,8 @@ const actions = {
    */
   refreshToken: async ({ commit, state }) => {
     const { refreshToken } = state.session
-    const res = await TokenService.fetchUpdateToken(refreshToken)
+
+    const res = await bossApi.refreshToken(refreshToken)
     if (!res) {
       console.log("刷新返回结果"+res)
       return Promise.resolve()

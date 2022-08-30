@@ -15,6 +15,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             range-separator="至"
+
             :picker-options="pickerOptions">
           </el-date-picker>
         </el-form-item>
@@ -172,8 +173,8 @@ export default {
     const filter = {
       id: '',
       username: '',
-      created: null,
-      last_login: null,
+      created: '',
+      last_login: '',
     }
 
     return {
@@ -202,23 +203,6 @@ export default {
       // paginate
       const params = { currentPage: this.page, pageSize: this.size }
 
-      // 统一请求
-      bossApi.getUserPages(params).then((res) => {
-        console.log('log.....')
-        this.users = res.records
-        this.total = res.total
-        // toggle loading
-        this.loading = false
-      })
-
-      // this.$services.user.getUserList(params).then((res) => {
-      //   // response
-      //   console.log('log.....')
-      //   this.users = res.records
-      //   this.total = res.total
-      //   // toggle loading
-      //   this.loading = false
-      // })
 
       // // sort
       // if (this.sort) params._sort = this.sort
@@ -244,23 +228,19 @@ export default {
         params.startUpdateTime = this.filter.last_login[0]
         params.endUpdateTime = this.filter.last_login[1]
       }
-      console.log('xxxxxxxxxxxx')
-      // request data
-      return this.$services.user
-        .getUserList(params)
-        .then((res) => {
-          // response
-          console.log('log.....')
-          this.users = res.records
-          this.total = res.total
-          // toggle loading
-          this.loading = false
-        })
-        .catch((err) => {
-          // handle error
-          console.error(err)
-          this.loading = false
-        })
+
+      // 统一请求
+      bossApi.getUserPages(params).then((res) => {
+        console.log('log.....')
+        this.users = res.data.records
+        this.total = res.data.total
+        // toggle loading
+        this.loading = false
+      }).catch(res => {
+
+        console.error(err)
+        this.loading = false
+      })
     },
 
     handleCurrentPageChange (page) {

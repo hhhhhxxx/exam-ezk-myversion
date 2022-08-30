@@ -1,5 +1,4 @@
 import { post,get } from "@/utils/request";
-import { baseRequest, PostRequest } from '../services/common'
 
 
 export default {
@@ -8,6 +7,7 @@ export default {
 
   // 登录调用
   getUserPermissions: () => get('/boss/permission/getUserPermissions'),
+  refreshToken: (refreshToken) => post(`/user/refresh_token?refreshtoken=${refreshToken}`),
 
   // 用户管理------------
   getUserPages : (params) => post('/boss/user/getUserPages',params),
@@ -53,7 +53,15 @@ export default {
   // 资源管理
   fetchResourceList: (params) =>  post('/boss/resource/getResourcePages',params),
   saveOrUpdateResource: (params) =>  post('/boss/resource/saveOrUpdate',params),
-  deleteResource: (id) =>  post('/boss/resource/'+id),
+  deleteResource: (id) =>  post('/boss/resource/delete/'+id),
+
+
+  // 资源分类
+  saveOrUpdateResourceCategory : (params) =>  post('/boss/resource/category/saveOrderUpdate',params),
+  deleteResourceCategory: (id) =>  post('/boss/resource/category/delete/'+id),
+
+
+
 }
 
 function SelectTreeData (treeData) {
@@ -84,14 +92,3 @@ function SelectTreeData (treeData) {
 }
 
 
-export function fetchList (params) {
-  return PostRequest('/boss/resource/getResourcePages', params)
-}
-
-export function saveOrUpdate (data) {
-  return PostRequest('/boss/resource/saveOrUpdate', data)
-}
-
-export function deleteResource (id) {
-  return baseRequest('/boss/resource/' + id, {}, 'delete')
-}
