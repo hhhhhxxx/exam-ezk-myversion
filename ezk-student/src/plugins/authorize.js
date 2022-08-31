@@ -21,7 +21,7 @@ export default (Vue) => {
       // authorized
       if (valid) {
         // 刷新token
-        if (to.path === '/') {
+        if (to.path === '/' || to.path === '/dashboard') {
           store.dispatch('refreshToken').catch((res) => {
             store.dispatch('deleteToken')
             next({ name: 'Login' })

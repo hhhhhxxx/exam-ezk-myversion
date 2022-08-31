@@ -1,4 +1,4 @@
-import { storage } from '../utils'
+import { storage } from '../utils/storage'
 import axios from 'axios'
 import { CHANGE_SESSION } from './mutations'
 
@@ -12,9 +12,9 @@ const storagePlugin = store => {
     switch (mutation.type) {
       case CHANGE_SESSION:
         // save session
-        // storage.set('session', state.session)
+        storage.set('session', state.session)
         // console.log('更新session1',state.session)
-        localStorage.setItem('session', JSON.stringify(state.session))
+        // localStorage.setItem('session', JSON.stringify(state.session))
         break
     }
   })
@@ -33,6 +33,8 @@ const axiosPlugin = store => {
   }
   // called when the store is initialized
   store.subscribe((mutation, state) => {
+
+
     // called after every mutation.
     // The mutation comes in the format of `{ type, payload }`.
     if (mutation.type !== CHANGE_SESSION) return
@@ -41,6 +43,7 @@ const axiosPlugin = store => {
     if (state.session && state.session.accessToken) {
       // change axios authorization header
       // console.log('更新token2', store.state.session.accessToken)
+      // console.log('更新token2')
       axios.defaults.headers.Authorization = `Bearer ${state.session.accessToken}`
     }
   })

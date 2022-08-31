@@ -36,9 +36,22 @@ const request = function (loadtip, query) {
       if (loadtip) {
         loading.close()
       }
-      vue.prototype.$message.error('原来的message:' + e.message)
+      vue.prototype.$message.error('request.catch的message:' + e.message)
       return Promise.reject(e.message)
     })
+}
+
+const postNoAuthHeader = function (url, params) {
+  const query = {
+    baseURL: process.env.VUE_APP_URL,
+    url: url,
+    method: 'post',
+    withCredentials: true,
+    timeout: 30000,
+    data: params,
+    headers: { 'Content-Type': 'application/json', 'request-ajax': true, 'Authorization': '' }
+  }
+  return request(false, query)
 }
 
 const post = function (url, params) {
@@ -107,6 +120,7 @@ const form = function (url, params) {
 }
 
 export {
+  postNoAuthHeader, // 为了refresh
   post,
   postWithLoadTip,
   postWithOutLoadTip,

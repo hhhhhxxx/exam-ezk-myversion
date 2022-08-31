@@ -189,6 +189,7 @@ export default {
       allocDialogVisible: false,
       allocRoleIds: [],
       allRoleList: [],
+      testData: {}
     }
   },
   created () {
@@ -237,7 +238,6 @@ export default {
         // toggle loading
         this.loading = false
       }).catch(res => {
-
         console.error(err)
         this.loading = false
       })
@@ -280,7 +280,7 @@ export default {
       bossApi.getRoleByAdmin().then((response) => {
         this.allRoleList = response.data.map((item) => {
           return { id: item.id, name: item.name }
-        })
+        }).catch()
       })
       bossApi.getRolesById(id).then((response) => {
         const allocRoleList = response.data
@@ -290,7 +290,7 @@ export default {
             this.allocRoleIds.push(allocRoleList[i].id)
           }
         }
-      })
+      }).catch()
 
       // getRoleByAdmin().then((response) => {
       //   this.allRoleList = response.data.map((item) => {
@@ -317,7 +317,7 @@ export default {
           type: 'success',
         })
         this.allocDialogVisible = false
-      })
+      }).catch()
     },
   },
 }

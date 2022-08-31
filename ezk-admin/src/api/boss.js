@@ -1,4 +1,4 @@
-import { post,get } from "@/utils/request";
+import { post,get,postNoAuthHeader } from "@/utils/request";
 
 
 export default {
@@ -7,7 +7,7 @@ export default {
 
   // 登录调用
   getUserPermissions: () => get('/boss/permission/getUserPermissions'),
-  refreshToken: (refreshToken) => post(`/user/refresh_token?refreshtoken=${refreshToken}`),
+  refreshToken: (refreshToken) => postNoAuthHeader(`/user/refresh_token?refreshtoken=${refreshToken}`),
 
   // 用户管理------------
   getUserPages : (params) => post('/boss/user/getUserPages',params),

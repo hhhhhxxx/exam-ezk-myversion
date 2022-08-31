@@ -50,10 +50,18 @@ export default {
       this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
     },
   },
+  data() {
+    return {
+      refreshTokenTimeInterval: null
+    }
+  },
   mounted () {
-    let timer = setInterval(() => {
-      store.dispatch('refreshToken')
-    }, 50000)
+    // if(this.refreshTokenTimeInterval == null) {
+    //   console.log('启动的计时器')
+    //   this.refreshTokenTimeInterval = setInterval(() => {
+    //     store.dispatch('refreshToken')
+    //   }, 50000)
+    // }
   }
 }
 </script>

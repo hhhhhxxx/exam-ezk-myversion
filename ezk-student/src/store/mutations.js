@@ -1,7 +1,4 @@
 import { CHANGE_SESSION } from './mutation-types'
-
-
-
 /**
  * @type {import('vuex/types').MutationTree<typeof import('./state').default>}
  */
@@ -14,5 +11,4 @@ const mutations = {
     Object.assign(state.session, session)
   }
 }
-
 export default mutations

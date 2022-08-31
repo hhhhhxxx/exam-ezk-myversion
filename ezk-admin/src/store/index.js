@@ -9,8 +9,8 @@ import mutations from './mutations'
 import actions from './actions'
 import plugins from './plugins'
 
-Vue.use(Vuex)
 
+Vue.use(Vuex)
 // store除了getters和modules里面的部分，其他都不原来的
 
 // https://webpack.js.org/guides/dependency-management/#requirecontext

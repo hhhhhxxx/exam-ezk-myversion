@@ -1,4 +1,3 @@
-
 import {
   CHANGE_SESSION,
 } from './mutations'
@@ -143,15 +142,16 @@ const actions = {
     const { refreshToken } = state.session
 
     const res = await bossApi.refreshToken(refreshToken)
-    if (!res) {
-      console.log("刷新返回结果"+res)
-      return Promise.resolve()
+    // request.js 那一层 直接返回res.data 不像拦截器 是真正的response
+
+    if (res.code !== '000000') {
+      console.log('刷新返回结果', res)
+      return Promise.reject(res)
     }
 
     const result = res.data
-
     commit(CHANGE_SESSION, { accessToken: result.access_token, refreshToken: result.refresh_token })
-    return Promise.resolve()
+    return Promise.resolve(res)
   }
 }
 

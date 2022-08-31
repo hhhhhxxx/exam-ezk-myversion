@@ -37,8 +37,6 @@ export default (Vue) => {
       // authorized
       if (valid) {
 
-
-
         let routes = store.getters['router/routes']
         let menusMap = store.getters['router/menusMap']
 
@@ -52,19 +50,18 @@ export default (Vue) => {
         } else {
           // 刷新token
           store.dispatch('refreshToken').then((res) => {
-
             store.dispatch('getUserPermissions').then((res) => {
               // 发请求获取
               const { menus, menusMap } = res
               store.commit('router/initRoutes', { menus, menusMap })
               return navigation(menusMap)
             })
-
+          }).catch(res => {
+            store.dispatch('deleteToken').then(res => {
+              next({ name: 'Login' })
+            })
           })
-
-
         }
-        return next()
       } else {
         // unauthorized
         console.log('Unauthorized 没有token 回到登录页')

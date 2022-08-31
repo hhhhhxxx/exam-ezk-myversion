@@ -8,7 +8,6 @@ const getters = {
 
 
   // 权限相关vuex getters
-  session: state => state.session,
-  tokenTimeOut: state => state.tokenTimeOut
+  session: state => state.session
 }
 export default getters

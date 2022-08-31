@@ -9,5 +9,5 @@ export default {
   install(Vue) {
     axios(Vue);
     authorize(Vue);
-  },
+  }
 };
