@@ -39,6 +39,20 @@ const request = function (loadtip, query) {
     })
 }
 
+// 刷新token 不能带上以及过期的Authorization
+const postNoAuthHeader = function (url, params) {
+  const query = {
+    baseURL: process.env.VUE_APP_URL,
+    url: url,
+    method: 'post',
+    withCredentials: true,
+    timeout: 30000,
+    data: params,
+    headers: { 'Content-Type': 'application/json', 'request-ajax': true, 'Authorization': '' }
+  }
+  return request(false, query)
+}
+
 const post = function (url, params) {
   const query = {
     url: url,
@@ -100,6 +114,7 @@ const form = function (url, params) {
 }
 
 export {
+  postNoAuthHeader,
   post,
   postWithLoadTip,
   postWithOutLoadTip,

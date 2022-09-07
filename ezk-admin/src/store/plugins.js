@@ -1,4 +1,4 @@
-import { storage } from '../utils/storage'
+import { localstorageUtil } from '../utils/storage'
 import axios from 'axios'
 import { CHANGE_SESSION } from './mutations'
 
@@ -12,7 +12,7 @@ const storagePlugin = store => {
     switch (mutation.type) {
       case CHANGE_SESSION:
         // save session
-        storage.set('session', state.session)
+        localstorageUtil.set('session', state.session)
         // console.log('更新session1',state.session)
         // localStorage.setItem('session', JSON.stringify(state.session))
         break

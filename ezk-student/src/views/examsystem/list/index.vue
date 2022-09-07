@@ -42,7 +42,7 @@
 
         <div class="dr_table">
           <el-table :data="tableData" :stripe=true
-            style="width: 100%">
+                    style="width: 100%">
             <el-table-column width="50px" prop="id" label="编号"></el-table-column>
             <el-table-column prop="name" label="试卷名称"></el-table-column>
             <el-table-column prop="examStartTime" label="考试时间"></el-table-column>
@@ -78,10 +78,11 @@
 
 <script>
 
-import Pagination from '@/components/Pagination'
+// import Pagination from '@/components/Pagination'
 
 export default {
-  components: { Pagination },
+  // eslint-disable-next-line vue/no-unused-components
+  // components: { Pagination },
 
   data () {
     return {
@@ -119,7 +120,6 @@ export default {
 
 }
 </script>
-
 
 <style lang="scss" scoped>
 

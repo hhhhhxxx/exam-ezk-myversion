@@ -1,10 +1,9 @@
-// import routes from '@/router/routes'
-
-import Cookies from 'js-cookie'
 import { asyncRouterMap } from '@/router/routes'
 import { filterAsyncRouter } from '@/utils/permission'
-import { storage } from '../../utils'
-import routes from '../../router/routes'
+
+// import routes from '../../router/routes'
+
+import { sessionstorageUtil } from '@/utils/storage'
 
 const state = {
   routes: [],
@@ -24,11 +23,15 @@ const mutations = {
 
     console.log('cookie存了吗？')
 
+    // 必须跟新state 才能使得getters拿到最新数据
     state.routes = asyncRouter
     state.menusMap = menusMap
 
-    sessionStorage.setItem(routesKey, JSON.stringify(asyncRouter))
-    sessionStorage.setItem(menusMapKey, JSON.stringify(menusMap))
+    sessionstorageUtil.set(routesKey,asyncRouter)
+    sessionstorageUtil.set(menusMapKey,menusMap)
+
+    // sessionStorage.setItem(routesKey, JSON.stringify(asyncRouter))
+    // sessionStorage.setItem(menusMapKey, JSON.stringify(menusMap))
   },
 
   clearRoutesCache: (state) => {
@@ -36,19 +39,23 @@ const mutations = {
     state.menusMap = {}
 
     // 缓存同一页面的数据，关闭窗口消失
-    sessionStorage.removeItem(routesKey)
-    sessionStorage.removeItem(menusMapKey)
+    // sessionStorage.removeItem(routesKey)
+    // sessionStorage.removeItem(menusMapKey)
+    sessionstorageUtil.remove(routesKey)
+    sessionstorageUtil.remove(menusMapKey)
   }
 }
 
 const getters = {
   // 菜单和menuMap
   routes: (state) => {
-    state.routes = JSON.parse(sessionStorage.getItem(routesKey) ?? '[]')
+    // state.routes = JSON.parse(sessionStorage.getItem(routesKey) ?? '[]')
+    state.routes = sessionstorageUtil.get(routesKey) ?? []
     return state.routes
   },
   menusMap: (state) => {
-    state.menusMap = JSON.parse(sessionStorage.getItem(menusMapKey) ?? '{}')
+    // state.menusMap = JSON.parse(sessionStorage.getItem(menusMapKey) ?? '{}')
+    state.menusMap = sessionstorageUtil.get(menusMapKey) ?? {}
     return state.menusMap
   }
 }

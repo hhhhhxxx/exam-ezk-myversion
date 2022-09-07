@@ -15,7 +15,6 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             range-separator="至"
-
             :picker-options="pickerOptions">
           </el-date-picker>
         </el-form-item>
@@ -32,10 +31,8 @@
           <template slot-scope="scope">
             <img
               class="avatar"
-              :src="
-                scope.row.portrait ||
-                '//www.lgstatic.com/thumbnail_100x100/i/image2/M01/5E/65/CgotOVszSAOANi0LAAAse2IVWAE693.jpg'
-              "
+              :src="scope.row.portrait
+              || '//www.lgstatic.com/thumbnail_100x100/i/image2/M01/5E/65/CgotOVszSAOANi0LAAAse2IVWAE693.jpg'"
               :alt="scope.row.name"/>
           </template>
         </el-table-column>
@@ -59,31 +56,25 @@
           align="center"
           min-width="120">
           <template slot-scope="scope">
-            <i
-              class="status status-success"
-              title="正常"
-              v-if="scope.row.status === 'ENABLE'"
-              @click="handleToggleStatus(scope.row)"></i>
-            <i
-              class="status status-danger"
-              title="禁用"
-              v-else-if="scope.row.status === 'DISABLE'"></i>
+            <!--{{scope.row.status === '1'}}-->
+            <i class="status status-success" title="正常"
+               v-if="scope.row.status === '1'" @click="handleToggleStatus(scope.row)"></i>
+            <i class="status status-danger"
+               title="禁用" v-else-if="scope.row.status === '1'"></i>
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center" min-width="120">
           <template slot-scope="scope">
             <el-button
-              v-if="scope.row.status == 'ENABLE'"
+              v-if="scope.row.status == '1'"
               size="mini"
               type="text"
-              @click="handleToggleStatus(scope.row)"
-            >{{ scope.row.status == 'ENABLE' ? '禁用' : '启用' }}
+              @click="handleToggleStatus(scope.row)">{{ scope.row.status == '1' ? '禁用' : '启用' }}
             </el-button>
             <el-button
               size="mini"
               type="text"
-              @click="handleSelectRole(scope.$index, scope.row)"
-            >分配角色
+              @click="handleSelectRole(scope.$index, scope.row)">分配角色
             </el-button>
           </template>
         </el-table-column>
@@ -115,13 +106,11 @@
           </el-option>
         </el-select>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="allocDialogVisible = false" size="small"
-          >取 消</el-button>
+          <el-button @click="allocDialogVisible = false" size="small">取 消</el-button>
           <el-button
             type="primary"
             @click="handleAllocDialogConfirm()"
-            size="small"
-          >确 定</el-button>
+            size="small">确 定</el-button>
         </span>
       </el-dialog>
     </section>
@@ -204,7 +193,6 @@ export default {
       // paginate
       const params = { currentPage: this.page, pageSize: this.size }
 
-
       // // sort
       // if (this.sort) params._sort = this.sort
       // if (this.order) params._order = this.order
@@ -276,12 +264,14 @@ export default {
       this.getRoleListByAdmin(row.id)
     },
     getRoleListByAdmin (id) {
-
       bossApi.getRoleByAdmin().then((response) => {
         this.allRoleList = response.data.map((item) => {
           return { id: item.id, name: item.name }
-        }).catch()
+        })
+      }).catch((res) => {
+        console.log("出错:",res)
       })
+
       bossApi.getRolesById(id).then((response) => {
         const allocRoleList = response.data
         this.allocRoleIds = []
@@ -290,7 +280,9 @@ export default {
             this.allocRoleIds.push(allocRoleList[i].id)
           }
         }
-      }).catch()
+      }).catch((res) => {
+        console.log("出错:",res)
+      })
 
       // getRoleByAdmin().then((response) => {
       //   this.allRoleList = response.data.map((item) => {

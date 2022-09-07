@@ -24,16 +24,16 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       checked: true,
       doId: ''
-    };
+    }
   },
-  created() {
+  created () {
     this.doId = this.$route.params.doId
   }
-};
+}
 </script>
 
 

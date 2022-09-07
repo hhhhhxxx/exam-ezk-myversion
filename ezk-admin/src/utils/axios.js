@@ -17,7 +17,7 @@ let requests = []
 axios.interceptors.response.use(
   response => {
 
-    console.log('新的响应来了', response.config.url)
+    // console.log('新的响应来了', response.config.url)
 
 
     if ( !response.hasOwnProperty('data') || !response.data.hasOwnProperty('code') || response.data.code !== '040005') {

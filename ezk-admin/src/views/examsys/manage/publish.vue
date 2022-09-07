@@ -4,7 +4,7 @@
       <div class="before-base-option">
         <el-form-item label="试 卷：">
           <i class="el-icon-caret-right"></i>
-          <span style="margin-right: 10px" v-if="choiceExamName !== ''">已选择：{{choiceExamName}}</span>
+          <span style="margin-right: 10px" v-if="choiceExamName !== ''">已选择：{{ choiceExamName }}</span>
           <el-link type="primary" @click="choiceExamDialog = !choiceExamDialog">请选择试卷</el-link>
           <!--   试卷列表     -->
           <el-dialog title="试卷列表" :visible.sync="choiceExamDialog" width="900px">
@@ -65,8 +65,10 @@
             <el-option
               v-for="item in userDataList"
               :key="item.id"
-              :label="item.name"
-              :value="item.name">
+              :label='`${item.name} (${item.phone})`'
+              :value="item.phone">
+              <!--:value="item.name">-->
+              <!--name会重复 故把phone当作username-->
             </el-option>
           </el-select>
         </el-form-item>
@@ -85,7 +87,7 @@
           >
           </el-date-picker>
         </el-form-item>
-        <el-form-item label="限制提交时间(min)：" >
+        <el-form-item label="限制提交时间(min)：">
           <el-input v-model="optionForm.limitSubmitTime" style="width: 200px"></el-input>
         </el-form-item>
         <el-form-item label="限制进入时间(min)：">
@@ -113,7 +115,7 @@
             placeholder="选择日期时间">
           </el-date-picker>
         </el-form-item>
-        <el-form-item  label="考试类型：">
+        <el-form-item label="考试类型：">
           <el-select v-model="kaowu.examType" placeholder="请选择">
             <el-option
               v-for="item in examTypeList"
@@ -130,8 +132,10 @@
     </el-form>
 
     <div class="other-button-class">
-      <el-button type="primary" @click="gjOption = true;fzbOption = false">高级设置<i class="el-icon-caret-bottom"></i></el-button>
-      <el-button type="primary" @click="fzbOption = true;gjOption = false">防作弊设置<i class="el-icon-caret-bottom"></i></el-button>
+      <el-button type="primary" @click="gjOption = true;fzbOption = false">高级设置<i class="el-icon-caret-bottom"></i>
+      </el-button>
+      <el-button type="primary" @click="fzbOption = true;gjOption = false">防作弊设置<i class="el-icon-caret-bottom"></i>
+      </el-button>
     </div>
 
     <el-card v-if="gjOption">
@@ -166,7 +170,8 @@
           </el-switch>
         </el-form-item>
         <el-form-item label="检测到屏幕异常：">
-          <el-input-number v-model="optionForm.limitScreenCount" :min="0" :max="20" label=""></el-input-number>&nbsp;&nbsp; 次，强制收卷
+          <el-input-number v-model="optionForm.limitScreenCount" :min="0" :max="20" label=""></el-input-number>&nbsp;&nbsp;
+          次，强制收卷
         </el-form-item>
         <el-form-item label="允许：">
           <el-select v-model="optionForm.allowMultidevice" placeholder="请选择">
@@ -176,19 +181,21 @@
               :label="item.label"
               :value="item.value">
             </el-option>
-          </el-select> 参与考试
+          </el-select>
+          参与考试
         </el-form-item>
       </el-form>
     </el-card>
 
-    <el-dialog :visible.sync="questionPage.showDialog"  width="70%">
+    <el-dialog :visible.sync="questionPage.showDialog" width="70%">
       <el-form :model="questionPage.queryParam" ref="queryForm" :inline="true">
         <el-form-item label="ID：">
-          <el-input v-model="questionPage.queryParam.id"  clearable></el-input>
+          <el-input v-model="questionPage.queryParam.id" clearable></el-input>
         </el-form-item>
         <el-form-item label="题型：">
           <el-select v-model="questionPage.queryParam.questionType" clearable>
-            <el-option v-for="item in questionTypeEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
+            <el-option v-for="item in questionTypeEnum" :key="item.key" :value="item.key"
+                       :label="item.value"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -221,7 +228,6 @@ import QuestionShow from '@/views/exam/question/components/Show'
 // import examPaperApi from '@/api/examPaper'
 import questionApi from '@/api/question'
 import classApi from '@/api/class'
-
 
 export default {
   components: { Pagination, QuestionShow },
@@ -311,7 +317,6 @@ export default {
       choiceExamId: null, // 选中试卷Id
       choiceExamName: '', // 选择的试卷名字
 
-
       kaowu: {
         noticeTime: '',
         examType: '',
@@ -350,14 +355,14 @@ export default {
     })
   },
   methods: {
-    getQuestionBankList(){
-      this.$axios.get(`/api/examsystem/tquestionbank/list`).then(res=>{
+    getQuestionBankList () {
+      this.$axios.get(`/api/examsystem/tquestionbank/list`).then(res => {
         console.log(res)
         this.questionBankList = res.data.page.list
       })
     },
 
-    getClassList(){
+    getClassList () {
       classApi.classList(this.classQueryParam).then((res) => {
         this.classList = res.response.records
       })
@@ -393,7 +398,7 @@ export default {
         currentPage: 1,
         pageSize: 20
       }
-      this.$axios.post(`/user/getUserPages`,query).then(res=>{
+      this.$axios.post(`/user/getUserPages`, query).then(res => {
         this.userDataList = res.data.records
       })
     },
@@ -512,36 +517,38 @@ export default {
   .q-title {
     margin: 0px 5px 0px 5px;
   }
+
   .q-item-content {
   }
 }
-.before-base-option{
+
+.before-base-option {
   height: auto;
   margin: 10px;
   border: 2px solid #ededed;
   padding: 10px;
 }
 
-.base-option-class{
+.base-option-class {
   height: auto;
   margin: 10px;
   border: 2px solid #ededed;
   padding: 10px;
 }
 
-.base-option-title-class{
+.base-option-title-class {
   font-size: 14px;
   margin-left: 10px;
   margin-bottom: 20px;
   color: grey;
 }
 
-.other-button-class{
+.other-button-class {
   margin-left: 50px;
   margin-top: 50px;
 }
 
-.publish-exam-class{
+.publish-exam-class {
   width: 100%;
 }
 </style>

@@ -32,10 +32,10 @@ const mutations = {
   clearLogin (state) {
     Cookies.remove('adminUserName')
     Cookies.remove('adminUserInfo')
-
+     
     localStorage.removeItem('session')
 
-    // 清除侧边栏缓存
+    // 清除侧边栏缓存sessionStorage
     store.commit('router/clearRoutesCache')
   }
 }

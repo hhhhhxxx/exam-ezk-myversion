@@ -2,8 +2,9 @@
   <div class="app-container">
 
     <el-form :model="queryParam" ref="queryForm" :inline="true">
+
       <el-form-item>
-        <div>19软件工程</div>
+        <el-tag  size="medium" effect="plain">{{ className }}</el-tag>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="addStudentShowDialog">学生入班</el-button>
@@ -24,6 +25,7 @@
         </template>
       </el-table-column>
     </el-table>
+
     <pagination
       v-show="total > 0"
       :total="total"
@@ -100,6 +102,7 @@ export default {
     }
   },
   created () {
+    this.className = this.$route.query.className;
     let classId = this.$route.query.id
     this.queryParam.classId  = classId
     this.searchClass()
@@ -108,6 +111,7 @@ export default {
     saveQrCode(){
       this.downloadIamge(this.qrcodeWebUrl, '班级邀请二维码')
     },
+
     downloadIamge(imgsrc, name) {//下载图片地址和图片名
       var image = new Image();
       // 解决跨域 Canvas 污染问题

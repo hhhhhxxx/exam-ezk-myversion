@@ -3,7 +3,7 @@
 
     <el-form :model="queryParam" ref="queryForm" :inline="true">
       <el-form-item >
-        <router-link :to="{ path: '/class/add' }" class="link-left">
+        <router-link :to="{ path: '/class/edit' }" class="link-left">
           <el-button type="primary">添加班级</el-button>
         </router-link>
       </el-form-item>
@@ -16,17 +16,24 @@
       <el-table-column prop="name" label="班级" align="center"/>
       <el-table-column prop="count" label="总人数" align="center"/>
       <el-table-column prop="description" label="描述" align="center"/>
-      <el-table-column label="操作" align="center" width="200" fixed="right">
+      <el-table-column label="操作" align="center" width="300" fixed="right">
         <template slot-scope="{ row }" class="operatorBox">
           <el-button class="link-left" size="mini"
-                     @click="$router.push({ path: '/class/student/list', query: { id: row.id } })">编辑班级
+                     @click="$router.push({ path: '/class/edit', query: { id: row.id } })">班级信息
+          </el-button>
+          <el-button class="link-left" size="mini"
+                     @click="$router.push({ path: '/class/student/list', query: { id: row.id, className: row.name } })">班级人员
           </el-button>
           <el-button class="link-left" size="mini" @click="deleteClass(row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <pagination v-show="total > 0" :total="total" :page.sync="queryParam.pageIndex" :limit.sync="queryParam.pageSize" @pagination="search"
-    />
+
+    <pagination v-show="total > 0"
+                :total="total"
+                :page.sync="queryParam.pageIndex"
+                :limit.sync="queryParam.pageSize"
+                @pagination="search"/>
   </div>
 </template>
 
@@ -46,7 +53,8 @@ export default {
       },
       listLoading: true,
       tableData: [],
-      total: 0
+      total: 0,
+      className: ''
     }
   },
   created () {

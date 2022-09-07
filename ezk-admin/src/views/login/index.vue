@@ -162,7 +162,7 @@ export default {
               const result = res.data
               store.commit(CHANGE_SESSION, { accessToken: result.access_token, refreshToken: result.refresh_token })
               // 设置用户名
-              _this.setUserName(result.user_name)
+              _this.setUserName(result.user_username)
               _this.$router.push({ path: '/' })
             } else {
 

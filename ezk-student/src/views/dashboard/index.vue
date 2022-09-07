@@ -32,7 +32,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import indexApi from '@/api/dashboard'
+// import indexApi from '@/api/dashboard'
 import Cookies from 'js-cookie'
 
 export default {
@@ -51,7 +51,6 @@ export default {
         { name: '人工智能', levelName: '大学', img: 'https://examsystem-gdpu.oss-cn-guangzhou.aliyuncs.com/base/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png' },
         { name: '操作系统', levelName: '大学', img: 'https://examsystem-gdpu.oss-cn-guangzhou.aliyuncs.com/base/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.jpg' },
         { name: '思想道德基础与法律修养', levelName: '大学', img: 'https://examsystem-gdpu.oss-cn-guangzhou.aliyuncs.com/base/%E5%85%B6%E4%BB%96.jpg' }
-
       ]
     }
   },

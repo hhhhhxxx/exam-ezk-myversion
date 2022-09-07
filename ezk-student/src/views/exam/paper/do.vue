@@ -6,66 +6,65 @@
       fullscreen
       :show-close="false"
       :close-on-press-escape="false"
-
       :visible.sync="dialogVisible">
-
       <div class="camera-container-parent">
         <div class="title-container">
-          <img class="title-img-class" src="https://uploadfiles.nowcoder.com/images/20161215/1_1481765923842_E7D55CB6675C14FF518EA9ED12DF12F8" width="80px" height="80px">
-          <div class="sub-title">{{form.name}} - 第 {{examArguments.examBatch}} 批,第 {{examArguments.examRound}} 场</div>
-          <div style="margin-left: 150px;margin-top: 20px">考试时间：{{format(examArguments.examStartTime)}} - {{format(examArguments.examEndTime)}}</div>
+          <!--这里src是一个默认的标靶的图片-->
+          <img class="title-img-class"
+               src="https://uploadfiles.nowcoder.com/images/20161215/1_1481765923842_E7D55CB6675C14FF518EA9ED12DF12F8"
+               width="80px" height="80px">
+          <div class="sub-title">
+            {{ form.name }} - 第 {{ examArguments.examBatch }} 批,第 {{ examArguments.examRound }} 场
+          </div>
+          <div style="margin-left: 150px;margin-top: 20px">
+            考试时间：{{ format(examArguments.examStartTime) }} - {{ format(examArguments.examEndTime) }}
+          </div>
         </div>
-<!--        <p style="padding: 20px;color: grey;font-size: 14px;position: absolute;top:50px">正在采集考前人脸照片,请调整合适姿势,保证上半身入镜.</p>-->
+        <!--        <p style="padding: 20px;color: grey;font-size: 14px;position: absolute;top:50px">正在采集考前人脸照片,请调整合适姿势,保证上半身入镜.</p>-->
 
         <div class="camera-container">
-
           <img :src="headImgSrc"/>
           <canvas ref="canvas" width="320" height="240" hidden></canvas>
           <div class="kaoqiancaiji-class" v-if="kaoqiancaijiTips">人脸采集</div>
-          <video class="video-class" ref="video" width="320" height="240" autoplay></video>
+          <!--crossorigin="anonymous" 跨域设置-->
+          <video class="video-class" ref="video" width="320" height="240" crossorigin="anonymous" autoplay></video>
 
           <div class="info-box-class">
             <h3 style="margin-left: 20px">考前须知</h3>
             <div class="dialog-top-class">
               <p style="color:red;">*温馨提示：退出全屏<b>{{ examArguments.limitScreenCount }}</b>次以后将自动交卷</p>
-              <p>1.在 {{examArguments.limitSubmitTime}} 分钟内不可提前交卷</p>
-              <p>2.在开考 {{examArguments.limitEnterTime}} 分钟后不可进入考试</p>
+              <p>1.在 {{ examArguments.limitSubmitTime }} 分钟内不可提前交卷</p>
+              <p>2.在开考 {{ examArguments.limitEnterTime }} 分钟后不可进入考试</p>
               <p v-if="examArguments.allowMultidevice === '0'">3.只允许在<b>电脑端</b>考试</p>
               <p v-if="examArguments.allowMultidevice === '1'">3.只允许在<b>手机app</b>考试</p>
               <p v-if="examArguments.allowMultidevice === '2'">3.允许在<b>电脑端与手机app</b>考试</p>
-              <p>4.本场考试允许重做 {{examArguments.allowRedo}} 次</p>
+              <p>4.本场考试允许重做 {{ examArguments.allowRedo }} 次</p>
               <p v-if="examArguments.enableMonitor === 1">考试全程<b>抓拍监控</b></p>
-              <p v-if="examArguments.passScore !== 0">{{examArguments.passScore}} 分及格</p>
+              <p v-if="examArguments.passScore !== 0">{{ examArguments.passScore }} 分及格</p>
             </div>
           </div>
         </div>
       </div>
-
       <span slot="footer" class="dialog-footer">
-<!--        <div class="confirm-student-name-class">-->
-<!--          <div>-->
-<!--            考生姓名：-->
-<!--            <el-input v-model="chatObj.fromName" style="width: 200px"></el-input>-->
-<!--            <el-button @click="confirmName" class="confirm-button-class">确认</el-button>-->
-<!--          </div>-->
-<!--        </div>-->
-        <el-button class="paishe-button-class" type="primary" v-if="chatObj.fromName!==''" @click='photograph(1)'>采  集</el-button>
+        <el-button
+          class="paishe-button-class"
+          type="primary" v-if="chatObj.fromName!==''"
+          @click='photograph(1)'>采  集</el-button>
       </span>
     </el-dialog>
-
+    <!--<canvas ref="canvas" width="320" height="240"></canvas>-->
+    <!--<el-button @click="testSendMsg">测试websocket</el-button>-->
     <el-card
       id="con_lf_top_div"
       ref="my-el-card"
       :class="{'isScreen':!fullscreen}"
-      :style="{background: backgroundColor}"
-    >
+      :style="{background: backgroundColor}">
 
       <el-button v-if="fullscreen" @click="screen();screen()" class="go-back-fullscreen">全屏</el-button>
-      <el-button @click="preventEye" :style="{background: backgroundColor}">{{eyeTitle}}</el-button>
+      <el-button @click="preventEye" :style="{background: backgroundColor}">{{ eyeTitle }}</el-button>
 
       <div v-if="this.option === 3">
         <h3>考试区域：</h3>
-
         <el-row class="do-exam-title" :style="{background: backgroundColor}">
           <el-col :span="24">
             <span :key="item.itemOrder" v-for="item in answer.answerItems">
@@ -79,7 +78,7 @@
           </el-col>
         </el-row>
         <el-row class="do-exam-title-hidden">
-          <el-col :span="24" >
+          <el-col :span="24">
             <span :key="item.itemOrder" v-for="item in answer.answerItems">
                  <el-tag class="do-exam-title-tag">{{ item.itemOrder }}</el-tag>
             </span>
@@ -97,13 +96,15 @@
             </div>
           </el-header>
           <el-main>
-            <el-form :model="form" ref="form" v-loading="formLoading" label-width="100px" >
+            <el-form :model="form" ref="form" v-loading="formLoading" label-width="100px">
               <el-row :key="index" v-for="(titleItem,index) in form.titleItems">
                 <h3>{{ titleItem.name }}</h3>
-                <el-card ref="my-el-card-2" :style="{background: backgroundColor}" class="exampaper-item-box" v-if="titleItem.questionItems.length!==0">
+                <el-card ref="my-el-card-2" :style="{background: backgroundColor}" class="exampaper-item-box"
+                         v-if="titleItem.questionItems.length!==0">
                   <el-form-item :key="questionItem.itemOrder" :label="questionItem.itemOrder+'.'"
                                 v-for="questionItem in titleItem.questionItems"
-                                class="exam-question-item " label-width="50px" :id="'question-'+ questionItem.itemOrder">
+                                class="exam-question-item " label-width="50px"
+                                :id="'question-'+ questionItem.itemOrder">
                     <QuestionEdit :qType="questionItem.questionType" :question="questionItem"
                                   :answer="answer.answerItems[questionItem.itemOrder-1]"/>
                   </el-form-item>
@@ -165,7 +166,6 @@ export default {
       peopleNumChangeCount: 0, // 统计一共出现1人以上情况的次数
       nonLiveChangeCount: 0, // 统计出现非活体现象情况的次数
       gender: null, // 性别
-
       examArguments: { // 考试发布相关参数
 
       },
@@ -174,17 +174,19 @@ export default {
       paperId: null,
       kaoqiancaijiTips: true, // 考前采集
       backgroundColor: '#ffffff',
-      eyeTitle: '开启护眼模式'
+      eyeTitle: '开启护眼模式',
+      photoTimer: null // 抓拍定时器
     }
   },
   created () {
     // let id = this.$route.query.id
     this.argumentId = this.$route.query.id
     // this.chatObj.fromName
-
     this.confirmName()
-
     this.getExamArguments()
+
+    // 直接开始 不要考前截图了 方便测试
+    // this.finalConfirmExam()
   },
   mounted () {
 
@@ -192,6 +194,10 @@ export default {
   beforeDestroy () {
     this.closeCamera()
     window.clearInterval(this.timer)
+    // 之前没有关 多个定时器同时抓拍
+    window.clearInterval(this.photoTimer)
+
+    this.ws = null
   },
   watch: {
     peopleNum: 'peopleNumChange',
@@ -199,6 +205,17 @@ export default {
     gender: 'genderChange'
   },
   methods: {
+    testSendMsg () {
+      var data = {
+        'code': '4',
+        'msg': 'hello worde',
+        'toName': '18631142256',
+        'examInfoId': this.examInfoId
+      }
+      var s = JSON.stringify(data)
+      console.log(s)
+      this.ws.send(s)
+    },
     // 护眼模式
     preventEye () {
       if (this.backgroundColor !== '#ffffff') {
@@ -289,9 +306,9 @@ export default {
           _this.initAnswer()
           _this.timeReduce()
           _this.formLoading = false
-        // if (id && parseInt(id) !== 0) {
-        //   _
-        //   })
+          // if (id && parseInt(id) !== 0) {
+          //   _
+          //   })
         })
       })
     },
@@ -430,9 +447,11 @@ export default {
 
     // 定时抓拍设置
     startExamClocking () {
-      this.$nextTick(() => {
-        setInterval(this.photograph, this.examClocking)
-      })
+      this.photoTimer = setInterval(this.photograph, this.examClocking) //先注释太频繁了
+
+      // this.$nextTick(() => {
+      //   setInterval(this.photograph, this.examClocking)
+      // })
     },
 
     // 确认考试姓名
@@ -460,20 +479,10 @@ export default {
           examArgumentsId: this.argumentId,
           studentName: this.chatObj.fromName
         }
-
         this.$axios.post('/api/examsystem/texaminfo/insertByStudent', examInfoData).then(res => {
           this.examInfoId = res.data.examInfoId
         })
       })
-
-      // this.$axios.post('/api/examsystem/frontInfo', user).then(res => {
-      //   this.$axios.get('/api/examsystem/currentUser').then(res => {
-      //     this.currentName = res.data
-      //     //this.option = 1
-      //     this.initWebSocket()
-      //
-      //   })
-      // })
     },
 
     // 初始化websocket服务器
@@ -514,27 +523,25 @@ export default {
     // 调用摄像头
     callCamera () {
       // H5调用电脑摄像头API
-      navigator.mediaDevices
-        .getUserMedia({
-          video: true
-        })
-        .then((success) => {
-          // 摄像头开启成功
-          this.$refs['video'].srcObject = success
-          // 实时拍照效果
-          this.$refs['video'].play()
-        })
-        .catch((error) => {
-          console.error('摄像头开启失败，请检查摄像头是否可用！', error)
-        })
+      navigator.mediaDevices.getUserMedia({
+        video: true
+      }).then((success) => {
+        // 摄像头开启成功
+        this.$refs['video'].srcObject = success
+        // 实时拍照效果
+        this.$refs['video'].play()
+      }).catch((error) => {
+        console.error('摄像头开启失败，请检查摄像头是否可用！', error)
+      })
     },
 
     // 拍照
     photograph (option) {
-      let ctx = this.$refs['canvas'].getContext('2d')
+      console.log('这里', this.$refs.canvas)
+      let ctx = this.$refs.canvas.getContext('2d')
       // 把当前视频帧内容渲染到canvas上
       // eslint-disable-next-line no-unused-expressions
-      this.$refs['video'].crossOrigin
+      // this.$refs['video'].crossOrigin = 'anonymous'
       ctx.drawImage(this.$refs['video'], 0, 0, 320, 240)
       // 转base64格式、图片格式转换、图片质量压缩
       let imgBase64 = this.$refs['canvas'].toDataURL('image/jpeg', 0.7)
@@ -545,27 +552,28 @@ export default {
       // 图片尺寸  用于判断
       let size = (fileLength / 1024).toFixed(2)
       console.log('传输大小:', size)
-
+      // 一开始进入考试时
       if (option === 1) {
         this.$message.success('采集完成，可开始作答')
         let upData = {
           imgBase64: imgBase64
         }
-        // 上传图片到oss
-        this.$axios.post('/api/thirdparty/oss/uploadBase64', upData).then(res => {
-          let responseData = res.data
-          let updateBeforeImg = {
-            examInfoId: this.examInfoId,
-            webUrl: responseData.webUrl
-          }
-          // 更新考前抓拍
-          this.$axios.post('/api/examsystem/texaminfo/updateBeforeImg', updateBeforeImg).then(res => {
-            console.log(res)
-          })
-        })
+        // 上传图片到oss 先不上传
+        // this.$axios.post('/api/thirdparty/oss/uploadBase64', upData).then(res => {
+        //   let responseData = res.data
+        //   let updateBeforeImg = {
+        //     examInfoId: this.examInfoId,
+        //     webUrl: responseData.webUrl
+        //   }
+        //   // 更新考前抓拍
+        //   this.$axios.post('/api/examsystem/texaminfo/updateBeforeImg', updateBeforeImg).then(res => {
+        //     console.log(res)
+        //   })
+        // })
         // 采集完成，开始考试
         this.finalConfirmExam()
       } else {
+        console.log('发抓拍')
         // 向教师端传输抓拍数据
         var data = {
           'code': '3',
@@ -589,7 +597,6 @@ export default {
         image: image,
         studentName: this.chatObj.fromName
       }
-
       // 必须是同步的，否则canvas无法画识别框
       this.$axios.post('/api/examsystem/detectFaces', data).then(res => {
         // console.log(res)
@@ -622,6 +629,7 @@ export default {
     },
 
     //= =======================================================
+    // 退出答题
     cancelForm () {
       this.$router.push('/index')
     },
@@ -731,24 +739,24 @@ export default {
 
 }
 
-.dialog-top-class{
+.dialog-top-class {
   padding: 20px;
 
 }
 
-.confirm-student-name-class{
+.confirm-student-name-class {
   padding: 10px;
   margin-left: 20px;
 }
 
-.confirm-student-name-class .confirm-button-class{
+.confirm-student-name-class .confirm-button-class {
   margin-left: 20px;
   background-color: #88c3f4;
   color: white;
   width: 100px;
 }
 
-.go-back-fullscreen{
+.go-back-fullscreen {
   position: absolute;
   top: 0;
   right: 0;
@@ -757,36 +765,36 @@ export default {
   width: 100px;
 }
 
-.photo-button-class{
+.photo-button-class {
   margin: 20px;
   background-color: #88c3f4;
   color: white;
   width: 100px;
 }
 
-.paishe-button-class{
+.paishe-button-class {
   background-color: #88c3f4;
   color: white;
   width: 100px;
 }
 
-.camera-container-parent{
+.camera-container-parent {
   box-shadow: 0 0 20px #ddd;
   width: 50%;
   margin: 0 auto;
 }
 
-.camera-container-parent .title-container{
+.camera-container-parent .title-container {
   margin-bottom: 10px;
 }
 
-.camera-container-parent .title-img-class{
+.camera-container-parent .title-img-class {
   position: relative;
   top: 30px;
   left: 20px;
 }
 
-.camera-container-parent .title-container .sub-title{
+.camera-container-parent .title-container .sub-title {
   display: inline-block;
   font-weight: 600;
   font-size: 18px;
@@ -800,14 +808,14 @@ export default {
   margin-top: 30px;
 }
 
-.video-class{
+.video-class {
   margin: 10px;
   padding: 20px;
   height: auto;
   background-color: #ddd;
 }
 
-.info-box-class{
+.info-box-class {
   border: 1px solid #ddd;
   box-shadow: 0 0 2px #ddd;
   width: 100%;
@@ -816,7 +824,7 @@ export default {
 
 }
 
-.kaoqiancaiji-class{
+.kaoqiancaiji-class {
   position: absolute;
   margin-left: 8%;
   margin-top: 8%;
@@ -824,12 +832,12 @@ export default {
 
 }
 
-.app-item-contain{
+.app-item-contain {
   background-color: #C7EDCC;
 }
 
-.app-item-question-container{
-  background-color: #C7EDCC ;
+.app-item-question-container {
+  background-color: #C7EDCC;
 }
 
 </style>

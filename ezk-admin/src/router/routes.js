@@ -38,10 +38,10 @@ export const asyncRouterMap = [
         meta: { title: '班级列表', noCache: true, requireAuth: true }
       },
       {
-        path: 'add',
-        component: () => import('@/views/class/addClass'),
-        name: 'AddClass',
-        meta: { title: '添加班级', noCache: true, requireAuth: true },
+        path: 'edit',
+        component: () => import('@/views/class/edit'),
+        name: 'EditClass',
+        meta: { title: '编辑班级', noCache: true, requireAuth: true },
         hidden: true
       },
       {
@@ -303,20 +303,21 @@ export const asyncRouterMap = [
     },
     alwaysShow: true,
     children: [
-      {
-        path: 'list',
-        component: () => import('@/views/task/list'),
-        name: 'TaskListPage',
-        meta: { title: '任务列表', noCache: true , requireAuth: true},
-        hidden: true
-      },
-      {
-        path: 'edit',
-        component: () => import('@/views/task/edit'),
-        name: 'TaskEditPage',
-        meta: { title: '任务创建', noCache: true , requireAuth: true},
-        hidden: true
-      },
+      // {
+      //   path: 'list',
+      //   component: () => import('@/views/task/list'),
+      //   name: 'TaskListPage',
+      //   meta: { title: '任务列表', noCache: true , requireAuth: true},
+      //   hidden: true
+      // },
+
+      // {
+      //   path: 'edit',
+      //   component: () => import('@/views/task/edit'),
+      //   name: 'TaskEditPage',
+      //   meta: { title: '任务创建', noCache: true , requireAuth: true},
+      //   hidden: true
+      // },
       {
         path: 'examsys/:studentName/:argumentsId',
         component: () => import('@/views/examsys/examsystem'),
@@ -502,7 +503,7 @@ export const asyncRouterMap = [
         path: 'index',
         component: () => import('@/views/profile/index'),
         name: 'Profile',
-        meta: { title: '个人简介', icon: 'user', noCache: true , requireAuth: true}
+        meta: { title: '个人简介', icon: 'user', noCache: true } // 不用验证
       }
     ]
   },

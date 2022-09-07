@@ -10,7 +10,7 @@ export default (Vue) => {
 
   // 保证的第一个拦截器 从头部插入
   router.beforeHooks.unshift((to, from, next) => {
-    console.log('要去哪？to: ', to)
+    console.log('要去哪: ', to.path)
     // don't need authorize
     if (!to.meta.requireAuth) return next()
 
@@ -40,8 +40,8 @@ export default (Vue) => {
         let routes = store.getters['router/routes']
         let menusMap = store.getters['router/menusMap']
 
-        console.log('routes', routes)
-        console.log('menusMap', menusMap)
+        // console.log('routes', routes)
+        // console.log('menusMap', menusMap)
         console.log('routes长度', routes.length)
 
         if (routes.length > 0 && menusMap) {

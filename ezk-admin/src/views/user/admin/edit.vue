@@ -2,8 +2,8 @@
   <div class="app-container">
 
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="用户名："  prop="userName" required>
-        <el-input v-model="form.userName"></el-input>
+      <el-form-item label="用户名："  prop="name" required>
+        <el-input v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="密码：" required>
         <el-input v-model="form.password"></el-input>
@@ -20,7 +20,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="出生日期：">
-        <el-date-picker v-model="form.birthDay" value-format="yyyy-MM-dd" type="date" placeholder="选择日期"/>
+        <el-date-picker v-model="form.birthDay" format="yyyy-MM-dd" value-format="yyyy-MM-dd" type="date" placeholder="选择日期"/>
       </el-form-item>
       <el-form-item label="手机：">
         <el-input v-model="form.phone"></el-input>
@@ -41,13 +41,14 @@
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex'
 import userApi from '@/api/user'
+import {formatDate} from '@/utils/date'
 
 export default {
   data () {
     return {
       form: {
         id: null,
-        userName: '',
+        name: '',
         password: '',
         realName: '',
         role: 3,
@@ -59,7 +60,7 @@ export default {
       },
       formLoading: false,
       rules: {
-        userName: [
+        name: [
           { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
         realName: [
@@ -74,8 +75,10 @@ export default {
     if (id && parseInt(id) !== 0) {
       _this.formLoading = true
       userApi.selectUser(id).then(re => {
-        _this.form = re.response
+        _this.form = re.data
         _this.formLoading = false
+
+        console.log(_this.form.birthDay)
       })
     }
   },
@@ -85,14 +88,14 @@ export default {
       this.$refs.form.validate((valid) => {
         if (valid) {
           this.formLoading = true
-          userApi.createUser(this.form).then(data => {
-            if (data.code === 1) {
-              _this.$message.success(data.message)
+          userApi.createUser(this.form).then(res => {
+            if (res.code === "000000") {
+              _this.$message.success(res.data)
               _this.delCurrentView(_this).then(() => {
                 _this.$router.push('/user/admin/list')
               })
             } else {
-              _this.$message.error(data.message)
+              _this.$message.error(res.data)
               _this.formLoading = false
             }
           }).catch(e => {

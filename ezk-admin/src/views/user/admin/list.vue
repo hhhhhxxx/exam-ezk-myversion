@@ -13,12 +13,12 @@
     </el-form>
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="Id" />
-      <el-table-column prop="userName" label="用户名"/>
-      <el-table-column prop="realName" label="真实姓名" />
+      <el-table-column prop="id" label="Id"/>
+      <el-table-column prop="name" label="用户名"/>
+      <el-table-column prop="realName" label="真实姓名"/>
       <el-table-column prop="sex" label="性别" width="60px;" :formatter="sexFormatter"/>
       <el-table-column prop="phone" label="手机号"/>
-      <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      <el-table-column prop="createTime" label="创建时间" width="160px" :formatter="dateFormatter"/>
       <el-table-column label="状态" prop="status" width="70px">
         <template slot-scope="{row}">
           <el-tag :type="statusTagFormatter(row.status)">
@@ -28,17 +28,21 @@
       </el-table-column>
       <el-table-column width="220px" label="操作" align="center">
         <template slot-scope="{row}">
-          <el-button size="mini"   @click="changeStatus(row)" class="link-left">
+          <el-button size="mini" @click="changeStatus(row)" class="link-left">
             {{ statusBtnFormatter(row.status) }}
           </el-button>
           <router-link :to="{path:'/user/admin/edit', query:{id:row.id}}" class="link-left">
             <el-button size="mini">编辑</el-button>
           </router-link>
-          <el-button size="mini" type="danger"  @click="deleteUser(row)" class="link-left">删除</el-button>
+          <el-button size="mini" type="danger" @click="deleteUser(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <pagination v-show="total>0" :total="total" :page.sync="queryParam.pageIndex" :limit.sync="queryParam.pageSize"
+
+    <pagination v-show="total > 0"
+                :total="total"
+                :page.sync="queryParam.pageIndex"
+                :limit.sync="queryParam.pageSize"
                 @pagination="search"/>
   </div>
 </template>
@@ -47,6 +51,7 @@
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
 import userApi from '@/api/user'
+import { formatDate } from '@/utils/date'
 
 export default {
   components: { Pagination },
@@ -69,33 +74,33 @@ export default {
   methods: {
     search () {
       this.listLoading = true
-      userApi.getUserPageList(this.queryParam).then(data => {
-        const re = data.response
-        this.tableData = re.list
-        this.total = re.total
-        this.queryParam.pageIndex = re.pageNum
+      userApi.getUserPageList(this.queryParam).then(res => {
+        const result = res.data
+        this.tableData = result.records
+        this.total = result.total
+        this.queryParam.pageIndex = result.current
         this.listLoading = false
       })
     },
     changeStatus (row) {
       let _this = this
       userApi.changeStatus(row.id).then(re => {
-        if (re.code === 1) {
-          row.status = re.response
-          _this.$message.success(re.message)
+        if (re.code === '000000') {
+          row.status = re.data
+          _this.$message.success(re.mesg)
         } else {
-          _this.$message.error(re.message)
+          _this.$message.error(re.mesg)
         }
       })
     },
     deleteUser (row) {
       let _this = this
       userApi.deleteUser(row.id).then(re => {
-        if (re.code === 1) {
+        if (re.code === '000000') {
           _this.search()
-          _this.$message.success(re.message)
+          _this.$message.success(re.mesg)
         } else {
-          _this.$message.error(re.message)
+          _this.$message.error(re.mesg)
         }
       })
     },
@@ -103,7 +108,7 @@ export default {
       this.queryParam.pageIndex = 1
       this.search()
     },
-    sexFormatter  (row, column, cellValue, index) {
+    sexFormatter (row, column, cellValue, index) {
       return this.enumFormat(this.sexEnum, cellValue)
     },
     statusFormatter (status) {
@@ -114,6 +119,12 @@ export default {
     },
     statusBtnFormatter (status) {
       return this.enumFormat(this.statusBtn, status)
+    },
+    // by hhx
+    dateFormatter (status) {
+
+      // console.log(status.createTime)
+      return formatDate(new Date(status.createTime), 'yyyy-MM-dd')
     }
   },
   computed: {

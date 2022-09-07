@@ -181,9 +181,9 @@ export default {
   mounted () {
     this.timer = setInterval(() => {
       store.dispatch('refreshToken')
-    }, 50000)
+    }, 120000)
   },
-  destroyed () {
+  beforeDestroy () {
     clearInterval(this.timer)
   }
 }

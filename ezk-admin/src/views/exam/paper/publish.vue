@@ -5,20 +5,17 @@
       ref="form"
       label-width="180px"
       v-loading="formLoading"
-      :rules="rules"
-    >
+      :rules="rules">
       <el-form-item label="年级：" prop="level" required>
         <el-select
           v-model="form.level"
           placeholder="年级"
-          @change="levelChange"
-        >
+          @change="levelChange">
           <el-option
             v-for="item in levelEnum"
             :key="item.key"
             :value="item.key"
-            :label="item.value"
-          ></el-option>
+            :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="学科：" prop="subjectId" required>
@@ -53,7 +50,7 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item label="试卷名称：" prop="name" required>
-        <el-input v-model="form.name" />
+        <el-input v-model="form.name"/>
       </el-form-item>
       <el-form-item label="考试时间：">
         <el-date-picker
@@ -100,10 +97,10 @@
         </el-card>
       </el-form-item> -->
       <el-form-item label="建议时长：" prop="suggestTime" required>
-        <el-input v-model="form.suggestTime" placeholder="分钟" />
+        <el-input v-model="form.suggestTime" placeholder="分钟"/>
       </el-form-item>
       <el-form-item label="监考老师：" prop="teacherName" required>
-        <el-input v-model="form.teacherName" placeholder="姓名" />
+        <el-input v-model="form.teacherName" placeholder="姓名"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm">提交</el-button>
@@ -117,16 +114,13 @@
         @click="
         gjOption = true;
         fzbOption = false;
-      "
-      >高级设置<i class="el-icon-caret-bottom"></i
-      ></el-button>
+      ">高级设置<i class="el-icon-caret-bottom"></i></el-button>
       <el-button
         type="primary"
         @click="
         fzbOption = true;
         gjOption = false;
-      "
-      >防作弊设置<i class="el-icon-caret-bottom"></i
+      ">防作弊设置<i class="el-icon-caret-bottom"></i
       ></el-button>
     </div>
 
@@ -177,9 +171,7 @@
             v-model="optionForm.limitScreenCount"
             :min="0"
             :max="20"
-            label=""
-          ></el-input-number
-          >&nbsp;&nbsp; 次，强制收卷
+            label=""></el-input-number>&nbsp;&nbsp; 次，强制收卷
         </el-form-item>
         <el-form-item label="允许：">
           <el-select v-model="optionForm.allowMultidevice" placeholder="请选择">
@@ -187,8 +179,7 @@
               v-for="item in multideviceOption"
               :key="item.value"
               :label="item.label"
-              :value="item.value"
-            >
+              :value="item.value">
             </el-option>
           </el-select>
           参与考试
@@ -452,6 +443,7 @@ export default {
   .q-title {
     margin: 0px 5px 0px 5px;
   }
+
   .q-item-content {
   }
 }
