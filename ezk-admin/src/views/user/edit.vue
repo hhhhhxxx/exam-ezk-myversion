@@ -78,7 +78,7 @@ export default {
         _this.form = re.data
         _this.formLoading = false
 
-        // console.log(_this.form.birthDay)
+        console.log(_this.form.birthDay)
       })
     }
   },
@@ -88,11 +88,11 @@ export default {
       this.$refs.form.validate((valid) => {
         if (valid) {
           this.formLoading = true
-          userApi.createUser(this.form).then(res => {
+          userApi.saveOrUpdateUser(this.form).then(res => {
             if (res.code === "000000") {
               _this.$message.success(res.data)
               _this.delCurrentView(_this).then(() => {
-                _this.$router.push('/user/student/list')
+                _this.$router.push('/permission/user/list')
               })
             } else {
               _this.$message.error(res.data)

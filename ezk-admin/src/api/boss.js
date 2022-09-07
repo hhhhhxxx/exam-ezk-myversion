@@ -13,7 +13,7 @@ export default {
   getUserPages : (params) => post('/boss/user/getUserPages',params),
   forbidUser: (params) => post('/boss/user/forbidUser',params),
 
-  getRoleByAdmin: () => get('/boss/role/all'),
+  getRoleAll: () => get('/boss/role/all'),
   getRolesById : (userId) => get('/boss/role/user/'+userId),
   allocRole : (params) => post('/boss/role/allocateUserRoles',params),
 
