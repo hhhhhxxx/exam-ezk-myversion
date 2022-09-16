@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/adminboss/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/adminboss/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-authority/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-authority/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-examservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-examservice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-thirdparty/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-thirdparty/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exam-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xzs-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xzs-authority/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xzs-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xzs-user/src/main/java" charset="UTF-8" />
+    <file url="file://E:/Enviroment/apache-maven-3.6.3/repo/org/springframework/boot/spring-boot-starter-parent/2.1.8.RELEASE/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

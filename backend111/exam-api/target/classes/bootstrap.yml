@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: exam-api  # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # 注册中心地址
+        namespace: bd28d33b-bc04-469d-902b-4ae5afb5ab68      # 命名空间
+      config:
+        server-addr: localhost:8848 # 配置中心地址
+        namespace: bd28d33b-bc04-469d-902b-4ae5afb5ab68 # 命名空间

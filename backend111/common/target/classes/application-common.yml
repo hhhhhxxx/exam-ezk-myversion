@@ -1,0 +1,6 @@
+constant:
+  jwt:
+    signingKey: 123456
+  mysql:
+    username: root
+    password: 123456

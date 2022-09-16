@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "system",
+      "type": "com.jdpu.userservice.config.SystemConfig",
+      "sourceType": "com.jdpu.userservice.config.SystemConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "system.pwd-key",
+      "type": "com.jdpu.userservice.config.property.PasswordKeyConfig",
+      "sourceType": "com.jdpu.userservice.config.SystemConfig"
+    },
+    {
+      "name": "system.qn",
+      "type": "com.jdpu.userservice.config.QnConfig",
+      "sourceType": "com.jdpu.userservice.config.SystemConfig"
+    },
+    {
+      "name": "system.security-ignore-urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.jdpu.userservice.config.SystemConfig"
+    },
+    {
+      "name": "system.wx",
+      "type": "com.jdpu.userservice.config.WxConfig",
+      "sourceType": "com.jdpu.userservice.config.SystemConfig"
+    }
+  ],
+  "hints": []
+}

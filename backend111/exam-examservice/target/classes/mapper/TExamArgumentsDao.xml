@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdpu.examsystem.dao.TExamArgumentsDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jdpu.examsystem.entity.TExamArgumentsEntity" id="tExamArgumentsMap">
+        <result property="id" column="id"/>
+        <result property="examPaperId" column="exam_paper_id"/>
+        <result property="examStartTime" column="exam_start_time"/>
+        <result property="examEndTime" column="exam_end_time"/>
+        <result property="limitSubmitTime" column="limit_submit_time"/>
+        <result property="limitEnterTime" column="limit_enter_time"/>
+        <result property="examBatch" column="exam_batch"/>
+        <result property="examRound" column="exam_round"/>
+        <result property="enableMonitor" column="enable_monitor"/>
+        <result property="limitScreenCount" column="limit_screen_count"/>
+        <result property="passScore" column="pass_score"/>
+        <result property="allowRedo" column="allow_redo"/>
+        <result property="allowCheckScore" column="allow_check_score"/>
+        <result property="allowMultidevice" column="allow_multidevice"/>
+        <result property="teacherName" column="teacher_name"/>
+    </resultMap>
+
+
+</mapper>

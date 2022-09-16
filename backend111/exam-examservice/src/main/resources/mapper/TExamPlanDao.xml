@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdpu.examsystem.dao.TExamPlanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jdpu.examsystem.entity.TExamPlanEntity" id="tExamPlanMap">
+        <result property="id" column="id"/>
+        <result property="noticeTime" column="notice_time"/>
+        <result property="examType" column="exam_type"/>
+        <result property="isPublish" column="is_publish"/>
+    </resultMap>
+
+
+</mapper>

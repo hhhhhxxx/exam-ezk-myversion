@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdpu.examsystem.dao.TExamInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jdpu.examsystem.entity.TExamInfoEntity" id="tExamInfoMap">
+        <result property="id" column="id"/>
+        <result property="examArgumentsId" column="exam_arguments_id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="numOverCount" column="num_over_count"/>
+        <result property="exitFullCount" column="exit_full_count"/>
+        <result property="nonLiveCount" column="non_live_count"/>
+        <result property="checkSex" column="check_sex"/>
+        <result property="beforeExamImg" column="before_exam_img"/>
+        <result property="duringExamImg" column="during_exam_img"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+
+</mapper>

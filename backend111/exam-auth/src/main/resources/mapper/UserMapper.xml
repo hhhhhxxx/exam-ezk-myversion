@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jdpu.auth.mapper.UserMapper">
+
+    <!--查询没有班级的用户 学生和老师 roleId区分-->
+    <select id="queryUserNoInClass" resultType="com.jdpu.common.entity.UserEntity">
+        select
+        u.id,
+        u.name,
+        u.portrait,
+        u.phone,
+        u.password,
+        u.reg_ip,
+        u.account_non_expired,
+        u.credentials_non_expired,
+        u.account_non_locked,
+        u.status,
+        u.is_del,
+        u.create_time,
+        u.update_time,
+        u.real_name,
+        u.age,
+        u.sex,
+        u.birth_day,
+        u.user_level from xzsss.user u
+        left join xzsss.t_user_class uc on u.id = uc.user_id
+        inner join xzsss.user_role_relation ur on u.id = ur.user_id
+        <where>
+            <if test="true">
+                and u.is_del = 0 and uc.user_id is null and ur.role_id = #{role_id}
+            </if>
+            <if test="username != null and username != ''">
+                and u.name like concat('%',#{username},'%')
+            </if>
+        </where>
+    </select>
+
+    <!--在班级的-->
+    <select id="queryUserInClass" resultType="com.jdpu.common.entity.UserEntity">
+        select
+        u.id,
+        u.name,
+        u.portrait,
+        u.phone,
+        u.password,
+        u.reg_ip,
+        u.account_non_expired,
+        u.credentials_non_expired,
+        u.account_non_locked,
+        u.status,
+        u.is_del,
+        u.create_time,
+        u.update_time,
+        u.real_name,
+        u.age,
+        u.sex,
+        u.birth_day,
+        u.user_level from xzsss.user u
+        inner join xzsss.t_user_class uc on u.id = uc.user_id
+        inner join xzsss.user_role_relation ur on u.id = ur.user_id
+        <where>
+            <if test="true">
+                and u.is_del = 0 and uc.class_id = #{class_id} and ur.role_id = #{role_id}
+            </if>
+            <if test="username != null and username != ''">
+                and u.name like concat('%',#{username},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

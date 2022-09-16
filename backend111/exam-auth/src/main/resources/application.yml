@@ -1,0 +1,46 @@
+server:
+  port: 8088
+#不要起带下划线的服务
+spring:
+  profiles:
+    include: common
+  # 数据源
+  datasource:
+    username: ${constant.mysql.username}
+    password: ${constant.mysql.password}
+    url: jdbc:mysql://127.0.0.1:3306/xzsss?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: exam-auth
+  security:
+    oauth2:
+      jwt:
+        signingKey: 123456
+  oauth:
+    client_id: client_lagou
+    client_secret: abcxyz
+    scope: all
+    grant_type: password
+    refresh_grant_type: refresh_token
+  main:
+    allow-bean-definition-overriding: true
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000     # 连接超时时间
+        readTimeout: 60000        # 读取超时时间

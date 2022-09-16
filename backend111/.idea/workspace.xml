@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46dc22aa-1ec7-4fb9-9ba6-f529461e7576" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Enviroment\apache-maven-3.6.3\repo" />
+        <option name="mavenHome" value="E:/Enviroment/apache-maven-3.6.3" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\Enviroment\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="279YX7k7k6ZmETGkFcmfCCxoSOT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowLuaCheck.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/exam-api/src/main/java/com/jdpu/api" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15332031" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="service.view.auto.scroll.to.source" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\服创\项目2\exam-ezk-myversion\backend1\exam-api\src\main\java\com\jdpu\api" />
+      <recent name="D:\Code\服创\项目2\exam-ezk-myversion\backend1\exam-thirdparty\src\main\java\com\jdpu\thirdparty" />
+      <recent name="D:\Code\服创\项目2\exam-ezk-myversion\backend1\exam-user\src\main\java\com\jdpu\userservice" />
+      <recent name="D:\Code\服创\项目2\exam-ezk-myversion\backend1\exam-api\src\main\java\com\jdpu\api\viewmodel" />
+      <recent name="D:\Code\服创\项目2\exam-ezk-myversion\backend1\exam-api\src\main\java\com\jdpu\api\viewmodel\user" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Code\服创\项目2\项目源码\项目源码\backend\exam-auth\src\main\java\jdpu\auth\auth\exception" />
+      <recent name="D:\Code\服创\项目2\项目源码\项目源码\backend\exam-auth\src\main\java\jdpu\auth\service\impl" />
+      <recent name="D:\Code\服创\项目2\项目源码\项目源码\backend\exam-auth\src\main\java\jdpu\auth\service" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.gdpu.userservice" />
+      <recent name="jdpu.auth" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jdpu.userservice.config" />
+      <recent name="com.jdpu.api.config" />
+      <recent name="com.jdpu.examsystem.context" />
+      <recent name="com.jdpu.examsystem.feign" />
+      <recent name="com.jdpu.api.viewmodel.user" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.AuthApplicationTests.test2">
+    <configuration name="AuthApplicationTests.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exam-auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jdpu.auth.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jdpu.auth.demo" />
+      <option name="MAIN_CLASS_NAME" value="jdpu.auth.demo.AuthApplicationTests" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthApplicationTests.tsetValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exam-auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jdpu.auth.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jdpu.auth.demo" />
+      <option name="MAIN_CLASS_NAME" value="jdpu.auth.demo.AuthApplicationTests" />
+      <option name="METHOD_NAME" value="tsetValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DBTest.testDbArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exam-examservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.whd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.whd" />
+      <option name="MAIN_CLASS_NAME" value="com.whd.DBTest" />
+      <option name="METHOD_NAME" value="testDbArray" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="exam-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gdpu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.api.ExamApiApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="exam-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.auth.ExamAuthApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamExamSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="exam-examservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.examsystem.ExamExamSystemApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="exam-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.gateway.ExamGatewayApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamThirdPartyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="exam-thirdparty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gdpu.thirdparty.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.thirdparty.ExamThirdPartyApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="exam-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jdpu.userservice.ExamUserApplication" />
+      <option name="VM_PARAMETERS" value="-Xms128m -Xmx128m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.AuthApplicationTests.test2" />
+      <item itemvalue="JUnit.DBTest.testDbArray" />
+      <item itemvalue="JUnit.AuthApplicationTests.tsetValue" />
+      <item itemvalue="Spring Boot.ExamExamSystemApplication" />
+      <item itemvalue="Spring Boot.ExamGatewayApplication" />
+      <item itemvalue="Spring Boot.ExamUserApplication" />
+      <item itemvalue="Spring Boot.ExamAuthApplication" />
+      <item itemvalue="Spring Boot.ExamApiApplication" />
+      <item itemvalue="Spring Boot.ExamThirdPartyApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ExamThirdPartyApplication" />
+        <item itemvalue="Spring Boot.ExamApiApplication" />
+        <item itemvalue="JUnit.AuthApplicationTests.test2" />
+        <item itemvalue="JUnit.AuthApplicationTests.tsetValue" />
+        <item itemvalue="JUnit.DBTest.testDbArray" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46dc22aa-1ec7-4fb9-9ba6-f529461e7576" name="Changes" comment="" />
+      <created>1648733806531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648733806531</updated>
+      <workItem from="1648733807906" duration="3197000" />
+      <workItem from="1648777174569" duration="3333000" />
+      <workItem from="1648785712654" duration="5149000" />
+      <workItem from="1648798823315" duration="617000" />
+      <workItem from="1648799768893" duration="7000" />
+      <workItem from="1648802521111" duration="1204000" />
+      <workItem from="1648815885598" duration="2822000" />
+      <workItem from="1648867169943" duration="1334000" />
+      <workItem from="1648884400755" duration="1601000" />
+      <workItem from="1648905888324" duration="22000" />
+      <workItem from="1648906046107" duration="38000" />
+      <workItem from="1648906097623" duration="1514000" />
+      <workItem from="1649149517767" duration="657000" />
+      <workItem from="1649163021184" duration="550000" />
+      <workItem from="1649163594746" duration="300000" />
+      <workItem from="1649163911661" duration="1460000" />
+      <workItem from="1649247697665" duration="48000" />
+      <workItem from="1649251385952" duration="1808000" />
+      <workItem from="1649294712715" duration="19000" />
+      <workItem from="1649294746294" duration="3884000" />
+      <workItem from="1649308167502" duration="3202000" />
+      <workItem from="1649342018236" duration="241000" />
+      <workItem from="1649403739657" duration="25000" />
+      <workItem from="1649405249468" duration="56000" />
+      <workItem from="1649405725918" duration="441000" />
+      <workItem from="1649417965664" duration="2367000" />
+      <workItem from="1649473083530" duration="9827000" />
+      <workItem from="1649556270841" duration="19039000" />
+      <workItem from="1649650050310" duration="13219000" />
+      <workItem from="1649690146394" duration="3637000" />
+      <workItem from="1649730406602" duration="4874000" />
+      <workItem from="1649773153647" duration="6342000" />
+      <workItem from="1649809954657" duration="26216000" />
+      <workItem from="1649901026793" duration="8752000" />
+      <workItem from="1649991828888" duration="2782000" />
+      <workItem from="1650076417975" duration="2547000" />
+      <workItem from="1650112086031" duration="57000" />
+      <workItem from="1650112458607" duration="3373000" />
+      <workItem from="1650169406847" duration="4000" />
+      <workItem from="1650180918447" duration="3340000" />
+      <workItem from="1660527767744" duration="5989000" />
+      <workItem from="1660534149272" duration="3729000" />
+      <workItem from="1660544065721" duration="5312000" />
+      <workItem from="1660627393975" duration="22000" />
+      <workItem from="1660698287795" duration="2611000" />
+      <workItem from="1660700904640" duration="21405000" />
+      <workItem from="1660786499371" duration="3623000" />
+      <workItem from="1660790310805" duration="11240000" />
+      <workItem from="1660809395767" duration="331000" />
+      <workItem from="1660809730186" duration="70000" />
+      <workItem from="1660820300801" duration="9424000" />
+      <workItem from="1660875712904" duration="3721000" />
+      <workItem from="1660911173302" duration="3397000" />
+      <workItem from="1660963955751" duration="495000" />
+      <workItem from="1660965277840" duration="722000" />
+      <workItem from="1660987638323" duration="1348000" />
+      <workItem from="1660993459237" duration="1735000" />
+      <workItem from="1660998436978" duration="3876000" />
+      <workItem from="1661060695092" duration="21899000" />
+      <workItem from="1661089446086" duration="8845000" />
+      <workItem from="1661139045875" duration="23472000" />
+      <workItem from="1661184194663" duration="3450000" />
+      <workItem from="1661258075844" duration="9110000" />
+      <workItem from="1661326206916" duration="8959000" />
+      <workItem from="1661341987428" duration="11106000" />
+      <workItem from="1661401422433" duration="14750000" />
+      <workItem from="1661430520364" duration="6590000" />
+      <workItem from="1661499581793" duration="4000" />
+      <workItem from="1661499595358" duration="4573000" />
+      <workItem from="1661512604902" duration="17997000" />
+      <workItem from="1661578055201" duration="14124000" />
+      <workItem from="1661669361430" duration="3920000" />
+      <workItem from="1661753278168" duration="5309000" />
+      <workItem from="1661760960155" duration="1877000" />
+      <workItem from="1661772291350" duration="3595000" />
+      <workItem from="1661777288705" duration="7902000" />
+      <workItem from="1661837974403" duration="13600000" />
+      <workItem from="1661862663922" duration="1000" />
+      <workItem from="1661868097689" duration="9785000" />
+      <workItem from="1661945468506" duration="12956000" />
+      <workItem from="1662013303315" duration="10569000" />
+      <workItem from="1662106594689" duration="16184000" />
+      <workItem from="1662191490884" duration="27732000" />
+      <workItem from="1662274575191" duration="18074000" />
+      <workItem from="1662313316308" duration="1615000" />
+      <workItem from="1662348341105" duration="5720000" />
+      <workItem from="1662379936147" duration="1483000" />
+      <workItem from="1662381432847" duration="13211000" />
+      <workItem from="1662448891468" duration="13190000" />
+      <workItem from="1662467311950" duration="10114000" />
+      <workItem from="1662484931532" duration="577000" />
+      <workItem from="1662533854339" duration="24258000" />
+      <workItem from="1662570361551" duration="8022000" />
+      <workItem from="1662613541015" duration="30035000" />
+      <workItem from="1662730952638" duration="5873000" />
+      <workItem from="1662743741422" duration="11221000" />
+      <workItem from="1662883963932" duration="7071000" />
+      <workItem from="1662893155840" duration="653000" />
+      <workItem from="1662963763540" duration="12711000" />
+      <workItem from="1662986897308" duration="16843000" />
+      <workItem from="1663050801101" duration="9446000" />
+      <workItem from="1663072582721" duration="16341000" />
+      <workItem from="1663158614079" duration="4174000" />
+      <workItem from="1663243060971" duration="15253000" />
+      <workItem from="1663310601430" duration="1237000" />
+      <workItem from="1663321165825" duration="12135000" />
+      <workItem from="1663337672831" duration="61000" />
+      <workItem from="1663337772880" duration="63000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exam-thirdparty/src/main/java/com/jdpu/thirdparty/qrcode/util/ImageConvertUtil.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exam-thirdparty/src/main/java/com/jdpu/thirdparty/qrcode/util/ImageConvertUtil.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exam-thirdparty/src/main/java/com/jdpu/thirdparty/qrcode/util/ImageConvertUtil.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../../../../DevEnv/repository/org/springframework/security/spring-security-core/5.1.6.RELEASE/spring-security-core-5.1.6.RELEASE-sources.jar!/org/springframework/security/access/vote/AffirmativeBased.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/exam-examservice/src/main/java/com/jdpu/examsystem/face/service/impl/FaceEngineServiceImpl.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((LinkedHashMap)map).entrySet().toArray()[2]" custom="java.util.LinkedHashMap" />
+        <watch expression="((LinkedHashMap)map).entrySet().toArray()[2]" custom="java.util.LinkedHashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

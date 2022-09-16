@@ -1,0 +1,70 @@
+server:
+  port: 88 # 端口号
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000     # 连接超时时间
+        readTimeout: 60000        # 读取超时时间
+
+spring:
+  application:
+    name: exam-gateway # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # nacos服务地址
+    gateway:
+      routes:
+        - id: user_route  # 用户服务
+          uri: lb://exam-user
+          predicates:
+            # 用户接口的路径(学生端、管理端、小程序端) 原来的请求
+            - Path=/api/user/**,/api/student/user/**,/api/admin/user/**
+
+        - id: api_route  # 接口服务
+          uri: lb://exam-api
+          predicates:
+            - Path=/api/student/dashboard/**,/api/wx/student/dashboard/**,/api/admin/dashboard/**,/api/student/education/**,/api/admin/education/**,/api/student/exam/**,/api/wx/student/exam/**,/api/admin/exam/**,/api/student/exampaper/**,/api/wx/student/exampaper/**,/api/student/question/**,/api/admin/question/**,/api/admin/task/**,/api/admin/message/**,/api/admin/examPaperAnswer/**,/api/admin/upload/**
+
+        - id: examsys_route  # 考试系统服务
+          uri: lb://exam-examsystem
+          predicates:
+            - Path=/api/examsystem/**
+
+        - id: thirdparty_route  # 第三方服务
+          uri: lb://exam-thirdparty
+          predicates:
+            - Path=/api/thirdparty/**
+
+
+          #三合一服务
+
+        - id: oauth_router
+          uri: lb://exam-auth
+          predicates:
+            - Path=/oauth/**,/user/** #登录和发令牌
+        #          filters:
+        #            - StripPrefix=1
+        - id: oauth_router2
+          uri: lb://exam-auth
+          predicates:
+            - Path=/auth/** # 菜单资源原生
+          filters:
+            - StripPrefix=1
+
+        - id: bossadmin_router
+          uri: lb://exam-auth
+          predicates:
+            - Path=/boss/** # 菜单资源加工后
+
+#        - id: authority_router
+#          uri: lb://xzs-authority
+#          predicates:
+#            - Path=/auth/**
+#          filters:
+#            - StripPrefix=1  #去掉头
+#        - id: bossadmin_router
+#          uri: lb://adminboss
+#          predicates:
+#            - Path=/boss/**

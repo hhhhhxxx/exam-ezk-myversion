@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="exam-api" />
+        <module name="exam-user" />
+        <module name="common" />
+        <module name="exam-examservice" />
+        <module name="exam-gateway" />
+        <module name="exam-auth" />
+        <module name="exam-thirdparty" />
+        <module name="adminboss" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="exam-common" target="1.8" />
+      <module name="exam-core" target="1.8" />
+      <module name="xzs-authority" target="1.8" />
+      <module name="xzs-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adminboss" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="exam-api" options="-parameters" />
+      <module name="exam-auth" options="-parameters" />
+      <module name="exam-common" options="-parameters" />
+      <module name="exam-core" options="-parameters" />
+      <module name="exam-examservice" options="-parameters" />
+      <module name="exam-gateway" options="-parameters" />
+      <module name="exam-thirdparty" options="-parameters" />
+      <module name="exam-user" options="-parameters" />
+      <module name="xzs-authority" options="-parameters" />
+      <module name="xzs-user" options="-parameters" />
+    </option>
+  </component>
+</project>

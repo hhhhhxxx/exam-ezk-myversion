@@ -1,0 +1,30 @@
+package com.jdpu.common.xzsOld.utils;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+
+/**
+ * Model mapper single
+ * Model和DTO方便转换的工具类
+ */
+public class ModelMapperSingle {
+    /**
+     * The constant modelMapper.
+     */
+    protected final static ModelMapper modelMapper = new ModelMapper();
+    private final static ModelMapperSingle modelMapperSingle = new ModelMapperSingle();
+
+    static {
+        modelMapper.getConfiguration().setFullTypeMatchingRequired(true);
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    }
+
+    /**
+     * Instance model mapper.
+     *
+     * @return the model mapper
+     */
+    public static ModelMapper Instance() {
+        return modelMapperSingle.modelMapper;
+    }
+}

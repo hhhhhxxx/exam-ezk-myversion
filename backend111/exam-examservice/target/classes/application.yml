@@ -1,0 +1,52 @@
+server:
+  port: 8200
+  max-http-header-size: 2MB
+  tomcat:
+    max-http-post-size: 50MB
+
+spring:
+  profiles:
+    include: common
+  application:
+    name: exam-examsystem # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # 服务发现
+  main:
+    allow-bean-definition-overriding: true  # 后来发现的bean会覆盖之前相同名称的bean
+
+  # 数据源
+  datasource:
+    username: ${constant.mysql.username}
+    password: ${constant.mysql.password}
+    url: jdbc:mysql://127.0.0.1:3306/xzsss?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    xa:
+      properties:
+        useInformationSchema: true
+  # redis
+  redis:
+    port: 6379
+    host: 127.0.0.1
+
+  #servlet
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+
+# 修改默认日志级别，以输出Feign调用日志
+logging:
+  level:
+    com.gdpu.examsystem.feign: debug
+
+# 虹软人脸识别
+config:
+  arcface-sdk:
+    sdk-lib-path: d:/arcsoft_lib
+    app-id: 5TU8fVcmUcLZZ7LXp7AHVWi415WVhj3fpxPCh9ZnK3Qs
+    sdk-key: 1SvsGKY4kZWHBw4jZoYirhdEzQt9ZHXWjaWLePFaaSq
+    detect-pool-size: 5
+    compare-pool-size: 5
