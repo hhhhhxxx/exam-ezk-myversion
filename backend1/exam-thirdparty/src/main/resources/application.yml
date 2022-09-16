@@ -31,12 +31,12 @@ logging:
     com.gdpu.core.feign: debug
 
 # 阿里云oss
-aliyun:
-  file:
-    endpoint: http://oss-cn-guangzhou.aliyuncs.com
-    accessKeyId: LTAI5tP6J2LZjv4QA8SZpq7J
-    accessKeySecret: USdhYjjbZDnogHECZNWtgLkR5D7JiO
-    bucketName: examsystem-gdpu
-    folder : examsystem
-    webUrl: https://examsystem-gdpu.oss-cn-guangzhou.aliyuncs.com
+#aliyun:
+#  file:
+#    endpoint: http://oss-cn-guangzhou.aliyuncs.com
+#    accessKeyId: LTAI5tP6J2LZjv4QA8SZpq7J
+#    accessKeySecret: USdhYjjbZDnogHECZNWtgLkR5D7JiO
+#    bucketName: examsystem-gdpu
+#    folder : examsystem
+#    webUrl: https://examsystem-gdpu.oss-cn-guangzhou.aliyuncs.com
 
